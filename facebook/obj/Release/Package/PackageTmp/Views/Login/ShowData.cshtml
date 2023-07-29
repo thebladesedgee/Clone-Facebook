@@ -1,0 +1,47 @@
+﻿@model IEnumerable<facebook.Models.KişiselDatalar>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowData</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-grid.rtl.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-reboot.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-reboot.rtl.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-grid.css" rel="stylesheet" />
+    <link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+</head>
+<body>
+    <div> 
+        <center>
+            <h2>Verileriniz Burada Listelenir</h2>
+        </center>
+        
+        <hr />
+        <div id="veri">
+            @foreach (var show in Model)
+            {
+                <ul class="list-group">
+                    <li  class="list-group-item list-group-item-success">
+                        @Html.ActionLink("güncelleme","Update", new { id = show.Id }, new { @class = "btn btn-warning btn-xs" })
+                        @Html.ActionLink("silme", "Delete", new { id = show.Id }, new { @class = "btn btn-danger btn-xs" })
+                        @("e-mail:")  @show.e_mail @("password:") @show.password
+                    </li>
+                </ul>
+            }
+        </div>
+
+      
+
+
+    </div>
+</body>
+</html>
